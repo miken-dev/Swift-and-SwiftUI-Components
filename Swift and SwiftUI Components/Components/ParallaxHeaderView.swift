@@ -1,8 +1,8 @@
 //
 //  ParallaxHeaderView.swift
-//  Swift and SwiftUI Components
+//  Moen Catalog Demo App
 //
-//  Created by Michael Neal on 7/27/24.
+//  Created by Michael Neal on 5/1/21.
 //
 
 import SwiftUI
