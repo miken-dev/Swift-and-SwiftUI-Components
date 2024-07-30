@@ -136,12 +136,13 @@ struct EmitterView: View {
 	}
 }
 
-
 // Example
 struct ParticleEffectsView: View {
 	var body: some View {
 		ZStack {
 			EmitterView(images: ["spark"], particleCount: 200, colors: [.red], blendMode: .screen, angleRange: .degrees(360), opacitySpeed: -1, scale: 0.4, scaleRange: 0.1, scaleSpeed: 0.4, speedRange: 80, animation: .easeOut(duration: 1).repeatForever(autoreverses: false)).id("spark") // use id when swapping between views to avoid confusing swiftUI
+			
+
 		}
 		.background(Color.black)
 		.ignoresSafeArea()
