@@ -14,7 +14,7 @@ extension Bundle {
 	/// - Parameters:
 	///   - file: A JSON file
 	///   - type: The data model to decode to
-	/// - Returns: An array of objects
+	/// - Returns: The given objects
 	/// ## Discussion
 	/// Example:
 	/// ```swift
