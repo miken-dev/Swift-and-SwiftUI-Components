@@ -138,14 +138,48 @@ struct EmitterView: View {
 
 // Example
 struct ParticleEffectsView: View {
-	var body: some View {
-		ZStack {
-			EmitterView(images: ["spark"], particleCount: 200, colors: [.red], blendMode: .screen, angleRange: .degrees(360), opacitySpeed: -1, scale: 0.4, scaleRange: 0.1, scaleSpeed: 0.4, speedRange: 80, animation: .easeOut(duration: 1).repeatForever(autoreverses: false)).id("spark") // use id when swapping between views to avoid confusing swiftUI
-			
 
+		@State private var images = ["spark"]
+	@State private var particleCount = 200.0
+	@State private var colors = [Color.red]
+	@State private var blendMode = BlendMode.screen
+	@State private var angleRange = Angle.degrees(360)
+	@State private var opacitySpeed = -1
+	@State private var scale = 0.4
+	@State private var scaleRange = 0.1
+	@State private var scaleSpeed = 0.4
+	@State private var speedRange = 80
+	@State private var animation = Animation.easeOut(duration: 1).repeatForever(autoreverses: false)
+	
+	@State private var modifiersAreShowing = false
+	
+
+	var body: some View {
+		VStack {
+			ZStack {
+				EmitterView(images: ["spark"], particleCount: Int(particleCount), colors: [.red], blendMode: .screen, angleRange: .degrees(360), opacitySpeed: -1, scale: 0.4, scaleRange: 0.1, scaleSpeed: 0.4, speedRange: 80, animation: .easeOut(duration: 1).repeatForever(autoreverses: false)).id("spark") // use id when swapping between views to avoid confusing swiftUI
+				
+				
+			}
+			.ignoresSafeArea()
+			Spacer()
+			Button("Show Modifiers") {
+				modifiersAreShowing.toggle()
+			}
+			.sheet(isPresented: $modifiersAreShowing) {
+				VStack {
+					Slider(
+						value: $particleCount,
+						in: 0...300,
+						label: {
+							Text("Number of Particles: \(particleCount)")
+						}
+					)
+				}
+				.presentationDetents([.fraction(CGFloat(0.25))])			
+			}
 		}
 		.background(Color.black)
-		.ignoresSafeArea()
 	}
 }
 
