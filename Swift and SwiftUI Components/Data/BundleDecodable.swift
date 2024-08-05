@@ -12,8 +12,8 @@ extension Bundle {
 	
 	/// A bundle extension method that decodes JSON files to Swift Objects
 	/// - Parameters:
-	///   - file: A JSON file
-	///   - type: The data model to decode to
+	///   - file: A file
+	///   - type: The data model to decode to, must conform to Decodable
 	/// - Returns: The given objects
 	/// ## Discussion
 	/// Example:
