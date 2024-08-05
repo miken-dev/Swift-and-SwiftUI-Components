@@ -11,13 +11,11 @@ extension UUID {
 	
 	/// Creates a new UUID v7
 	///
-	/// Use:
+	/// ### Use:
 	/// ```swift
 	/// let uuid: UUID = .v7()
 	/// ```
 	/// v7 UUIDs are sortable by time, and accurate to the millisecond
-	///
-	///
 	/// - Returns: a v7 UUID
 	static func v7() -> Self {
 		var value = (
